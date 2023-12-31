@@ -29,11 +29,11 @@ you put that .bat file in your projects folders where your rom hack is, then edi
 
 <br>
 Content of build.bat :
-<code>
+<h3>
     copy alttp.sfc patched.sfc
     asar main.asm patched.sfc
     pause
-</code>
+</h3>
 <br>
 
 basically what this is doing is copy your rom "alttp.sfc" in a file named "patched.sfc"
@@ -44,13 +44,13 @@ then it will use Asar on your patched.sfc with the code contained in main.asm fi
 anything after ; is a comment you can add more patches to it by adding the patch.asm in your project folder
 and by calling the function "incsrc mypatch.asm"
 <br>
-<code>
+<h3>
     Content of main.asm :
     org $2A8000 ; Set writing position to 0x150000 in the ROM (expanded region)
     
     incsrc "patch.asm" ; will patch the file named patch.asm in the rom
     ; you can add more patches here
-</code>
+</h3>
 <br>
 note that you can also create folders for better organisation for example
 Projects\Patches\Sprites\Sickkiditem.asm
