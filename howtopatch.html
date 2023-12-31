@@ -7,11 +7,14 @@ title: How to patch
 <br>
 <b>for easy push/pull pc patches usage</b>
 </p>
-
+<h3>
 <b>1) Download Asar and unzip it you can find it here : <a href="https://github.com/RPGHacker/asar/releases/tag/v1.81">Asar</a></b><br>
+</h3>
 <br>
 <br>
+<h3>
 <b>2) (optional, read note *) put Asar.exe in your PATH Environment Variables on windows for easier use</b><br>
+</h3>
 *if you do not follow that step you will have copy Asar.exe in each of your projects folders
 or reference the path in the build.bat file
 <br>
@@ -23,7 +26,9 @@ in the top section there is a Variable called "Path", select it and click "Modif
 Add a new one called "C:\Asar" or the folder where you've put Asar
 <br>
 <br>
+<h3>
 <b>3) Create a .bat file for patch automation you can write it yourself or copy the one below</b><br>
+</h3>
 also IMPORTANT make sure your rom file extension is .sfc otherwise asar will think your rom have a header
 you put that .bat file in your projects folders where your rom hack is, then edit the name of "alttp.sfc"
 
@@ -33,33 +38,38 @@ Content of build.bat :
     <div class="highlight">
         <pre class="highlight">
             <code>
-                <span>
-                    copy alttp.sfc patched.sfc
-                    asar main.asm patched.sfc
-                    pause
-                </span>
+    copy alttp.sfc patched.sfc
+    asar main.asm patched.sfc
+    pause
             </code>
         </pre>
     </div>
     </div>
-</span>
 <br>
 
 basically what this is doing is copy your rom "alttp.sfc" in a file named "patched.sfc"
 then it will use Asar on your patched.sfc with the code contained in main.asm file
 <br>
 <br>
+<h3>
 <b>4) Create a "main.asm" file, that file will contains all your asm patches like the example below</b><br>
+</h3>
 anything after ; is a comment you can add more patches to it by adding the patch.asm in your project folder
 and by calling the function "incsrc mypatch.asm"
 <br>
-<h3>
+<div class="language-asm">
+    <div class="highlight">
+        <pre class="highlight">
+            <code>
     Content of main.asm :
     org $2A8000 ; Set writing position to 0x150000 in the ROM (expanded region)
     
     incsrc "patch.asm" ; will patch the file named patch.asm in the rom
     ; you can add more patches here
-</h3>
+            </code>
+        </pre>
+    </div>
+    </div>
 <br>
 note that you can also create folders for better organisation for example
 Projects\Patches\Sprites\Sickkiditem.asm
@@ -68,7 +78,9 @@ incsrc "Patches\Sprites\Sickkiditem.asm"
 that way if you use many patches they won't all be in the same folder
 <br>
 <br>
+<h3>
 <b>5) once you have all the patches you want in your project folder</b><br>
+</h3>
 you can just double click on the "build.bat" file that is in your project folder
 you should see a console window appearing with very few lines in it
 with a press a key to continue... message, if you do not see any messages errors then it worked
