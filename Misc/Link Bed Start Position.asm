@@ -11,11 +11,11 @@
 ;#DEFINE_START
 ;#name=Link Y Position
 ;#type=word
-!LinkYPosition = $2182
+!LinkYPosition =  $215A
 
 ;#name=Link X Position
 ;#type=word
-!LinkXPosition = $095B
+!LinkXPosition =  $0940
 ;#DEFINE_END
 
 ; Link sleep position changes
