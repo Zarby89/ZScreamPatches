@@ -13,7 +13,7 @@
 ;#type=word
 !LinkYPosition = $2182
 
-;#name=Link Y Position
+;#name=Link X Position
 ;#type=word
 !LinkXPosition = $095B
 ;#DEFINE_END
